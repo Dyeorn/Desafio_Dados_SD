@@ -79,14 +79,13 @@ queries = [
 # Executa as consultas e gera arquivos CSV.
 for i, query in enumerate(queries):
 
-    # Executa a Query SQL.
     cursor.execute(query)
 
     # Busca todos os resultados.
     results = cursor.fetchall()
 
     # Define o caminho do arquivo CSV.
-    csv_file = f'query_{i}.csv'
+    arquivo_csv = f'query_{i}.csv'
 
     # Grava os resultados em um arquivo CSV.
     with open(csv_file, 'w', newline='') as file:
@@ -105,9 +104,9 @@ for i, query in enumerate(queries):
             writer.writerow(['Sub_Categoria', 'Nome_Produto', 'Total_Vendido'])
         
 
-        writer.writerows(results)  # Escreve as linhas.
+        writer.writerows(results) 
 
-    print(f"CSV file '{csv_file}' generated successfully!")
+    print(f"O arquivo '{arquivo_csv}' gerado com sucesso!")
 
 # Encerra o cursor e as conexões.
 conexao.commit()

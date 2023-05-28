@@ -1,8 +1,3 @@
-# "Pandas" É uma biblioteca popular para análise e manipulação de dados. 
-# Ela fornece estruturas de dados de alto desempenho e fáceis de usar, como o DataFrame, que permite trabalhar com dados tabulares. 
-# Neste código, o pandas é usado para carregar e manipular os dados do arquivo CSV.
-
-# Importação do Pandas.
 import pandas as pd
 
 # O caminho do arquivo CSV é definido usando a variável path.
@@ -24,5 +19,5 @@ df["StockDate"] = df["StockDate"].dt.strftime("%Y/%m/%d")
 # O caminho para o novo arquivo CSV é definido usando a variável new_path.
 new_path = r"F:\REPOSITORIOS\Repositorio-SantoDigital\Desafio-Data\formatado\AdventureWorks_Sales_2017_tratado.csv"
 
-#DataFrame resultante é salvo em um novo arquivo CSV usando o método to_csv(). Algumas opções são fornecidas:
+# DataFrame resultante é salvo em um novo arquivo CSV usando o método to_csv().
 df.to_csv(new_path, index=False)
