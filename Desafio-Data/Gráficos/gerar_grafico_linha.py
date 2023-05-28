@@ -1,13 +1,3 @@
-# "matplotlib.pyplot" É uma subbiblioteca do Matplotlib que fornece uma interface semelhante ao MATLAB para criar gráficos. 
-# Ela é amplamente usada para visualizações de dados. 
-# Neste código, o pyplot é usado para configurar e exibir os gráficos.
-
-# "mysql.connector" É uma biblioteca que fornece uma interface para se conectar e interagir com bancos de dados MySQL. 
-# Ela permite executar consultas SQL e recuperar os resultados no Python. 
-# Neste código, o mysql.connector é usado para se conectar ao banco de dados MySQL e executar consultas.
-
-
-# Importação das bibliotecas necessárias.
 import matplotlib.pyplot as plt
 import mysql.connector
 

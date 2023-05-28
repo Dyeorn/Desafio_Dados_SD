@@ -1,21 +1,3 @@
-# "seaborn" - Biblioteca de visualização de dados baseada no Matplotlib. 
-# Ela fornece uma interface de alto nível para criar gráficos estatísticos atraentes e informativos. 
-# No código fornecido, o seaborn é usado para criar gráficos de calor.
-
-# "matplotlib.pyplot" É uma subbiblioteca do Matplotlib que fornece uma interface semelhante ao MATLAB para criar gráficos. 
-# Ela é amplamente usada para visualizações de dados. 
-# Neste código, o pyplot é usado para configurar e exibir os gráficos.
-
-# "Pandas" É uma biblioteca popular para análise e manipulação de dados. 
-# Ela fornece estruturas de dados de alto desempenho e fáceis de usar, como o DataFrame, que permite trabalhar com dados tabulares. 
-# Neste código, o pandas é usado para carregar e manipular os dados do arquivo CSV.
-
-# "mysql.connector" É uma biblioteca que fornece uma interface para se conectar e interagir com bancos de dados MySQL. 
-# Ela permite executar consultas SQL e recuperar os resultados no Python. 
-# Neste código, o mysql.connector é usado para se conectar ao banco de dados MySQL e executar consultas.
-
-
-# Importação das bibliotecas necessárias.
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd

@@ -1,11 +1,3 @@
-# "CSV" é uma biblioteca nativa do Python que fornece funcionalidades para ler e escrever dados em formato CSV. 
-# Ela oferece métodos simples e eficientes para trabalhar com arquivos CSV, que são comumente usados para armazenar dados tabulares.
-
-# "mysql.connector" É uma biblioteca que fornece uma interface para se conectar e interagir com bancos de dados MySQL. 
-# Ela permite executar consultas SQL e recuperar os resultados no Python. 
-# Neste código, o mysql.connector é usado para se conectar ao banco de dados MySQL e executar consultas.
-
-# Importação das bibliotecas necessárias.
 import csv
 import mysql.connector
 

@@ -188,7 +188,6 @@ use `Data-AdventureWorks`;
 -- ---------------------------------------------------------
 
 /*
-O código realiza uma consulta em um banco de dados para obter os 10 produtos mais vendidos na categoria "Bikes".
 
 A consulta utiliza as tabelas "products", "sales" e "product_category" para realizar os joins necessários. 
 A condição JOIN é estabelecida através das chaves de relacionamento entre as tabelas.
@@ -219,7 +218,6 @@ LIMIT 10;
 -- --------------------------------------------------------------
 
 /*
-realiza uma consulta em um banco de dados para obter o cliente com o maior número total de pedidos.
 
 A consulta utiliza a função CONCAT() para combinar o primeiro nome e o sobrenome do cliente em uma única coluna chamada "Cliente". 
 Em seguida, utiliza a função COUNT() para contar o número de pedidos (baseado na coluna "orderNumber") para cada cliente.
@@ -244,7 +242,6 @@ LIMIT 1;
 -- --------------------------------------------------------
 
 /*
-realiza uma consulta em um banco de dados para obter o mês com o maior valor total de vendas.
 
 A consulta utiliza a função MONTH() para extrair o mês da coluna OrderDate da tabela sales. 
 Em seguida, calcula o valor total das vendas multiplicando o preço do produto pela quantidade vendida e somando os resultados, 
@@ -270,9 +267,6 @@ LIMIT 1;
 -- -----------------------------------------------------------
 
 /*
-
-O código realiza uma consulta em um banco de dados para obter a região, país e a média de vendas por região, 
-considerando apenas as regiões com média de vendas acima da média geral.
 
 O código utiliza subconsultas para calcular a média de vendas por região e país. 
 A primeira subconsulta calcula a média de vendas (preço do produto multiplicado pela quantidade vendida) agrupada por região e país. 
@@ -318,7 +312,6 @@ ORDER BY media_vendas DESC;
 -- -----------------------------------------------------------
 
 /*
-O código combina informações das tabelas product_subcategories, products e sales através de junções (JOINs).
 
 A consulta agrupa os resultados pelo nome da subcategoria e nome do produto. 
 Em seguida, calcula a soma das quantidades vendidas (Total_Vendido) usando a função SUM() da coluna OrderQuantity da tabela sales.

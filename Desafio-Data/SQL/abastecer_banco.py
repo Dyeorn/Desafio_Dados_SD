@@ -1,15 +1,3 @@
-# "CSV" é uma biblioteca nativa do Python que fornece funcionalidades para ler e escrever dados em formato CSV. 
-# Ela oferece métodos simples e eficientes para trabalhar com arquivos CSV, que são comumente usados para armazenar dados tabulares.
-
-# "Pandas" É uma biblioteca popular para análise e manipulação de dados. 
-# Ela fornece estruturas de dados de alto desempenho e fáceis de usar, como o DataFrame, que permite trabalhar com dados tabulares. 
-# Neste código, o pandas é usado para carregar e manipular os dados do arquivo CSV.
-
-# "mysql.connector" É uma biblioteca que fornece uma interface para se conectar e interagir com bancos de dados MySQL. 
-# Ela permite executar consultas SQL e recuperar os resultados no Python. 
-# Neste código, o mysql.connector é usado para se conectar ao banco de dados MySQL e executar consultas.
-
-# Importação das bibliotecas necessárias.
 import csv
 import pandas as pd
 import mysql.connector
@@ -25,10 +13,7 @@ conexao = mysql.connector.connect(
 # O cursor é criado para executar as consultas no banco de dados.
 cursor = conexao.cursor()
 
-# O caminho para o arquivo CSV é definido na variável caminho_csv1.
 caminho_csv1 = 'F:\REPOSITORIOS\Repositorio-SantoDigital\Desafio-Data\Datasets\Calendar\AdventureWorks_Calendar_tratado.csv'
-
-# O nome da tabela no banco de dados é definido na variável tabela1.
 tabela1 = 'calendar'
 
 # Os dados do arquivo CSV são lidos usando o pd.read_csv(), que retorna um DataFrame do pandas contendo os dados do arquivo CSV.
@@ -59,7 +44,7 @@ with open(caminho_csv1, 'r') as arquivo_csv:
          # A consulta SQL é executada pelo cursor usando cursor.execute() e os valores da linha são passados como argumento.
         cursor.execute(query, valores)
 
-# A mesma coisa se repete durante o código, mudando apenas a variavel "caminho_csv" e a "tabela".
+# A mesma coisa se repete durante o código, mudando apenas a variavel "caminho_csv" e "tabela".
 caminho_csv2 = 'F:\REPOSITORIOS\Repositorio-SantoDigital\Desafio-Data\Datasets\Products\AdventureWorks_Product_Categories.csv'
 tabela2 = 'product_category'
 

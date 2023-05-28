@@ -6,10 +6,8 @@ exemplo, para o array [3, 8, 50, 5, 1, 18, 12], a função deve retornar
 [(3, 1), (8, 5)]."""
 
 def encontrar_diferenca(array): 
-    # Ordena o array em ordem crescente.
     array.sort()
 
-    # Inicializa as variáveis.
     menor_diferenca = float('inf')
     pares_menor_diferenca = []
 
@@ -20,7 +18,6 @@ def encontrar_diferenca(array):
 
         # Verifica se a diferença é menor que a menor diferença atual.
         if diferenca < menor_diferenca:
-             # Atualiza a menor diferença e armazena o par correspondente.
             menor_diferenca = diferenca
             pares_menor_diferenca = [(array[i], array[i + 1])]
 
@@ -28,10 +25,10 @@ def encontrar_diferenca(array):
         elif diferenca == menor_diferenca:
             pares_menor_diferenca.append((array[i], array[i + 1]))
 
-    # Retorna os pares de elementos com a menor diferença.
+
     return pares_menor_diferenca
 
 
-array = [3, 8, 50, 5, 1, 18, 12] # Variável com o conjunto desejado.
-resultado = encontrar_diferenca(array)  # Puxando a função com os valores da variável.
-print(resultado) # Exibindo a lista com o resultado desejado.
+array = [3, 8, 50, 5, 1, 18, 12] 
+resultado = encontrar_diferenca(array)  
+print(resultado) 
