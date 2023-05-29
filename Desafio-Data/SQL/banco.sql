@@ -192,7 +192,7 @@ use `Data-AdventureWorks`;
 A consulta utiliza as tabelas "products", "sales" e "product_category" para realizar os joins necessários. 
 A condição JOIN é estabelecida através das chaves de relacionamento entre as tabelas.
 
-A cláusula WHERE é utilizada para filtrar apenas os produtos que pertencem à categoria "Bikes", com base no nome da categoria.
+O WHERE é utilizada para filtrar apenas os produtos que pertencem à categoria "Bikes", com base no nome da categoria.
 
 Os resultados são agrupados pelo ID do produto (ProductKey) utilizando o comando GROUP BY. 
 A função SUM() é utilizada para calcular o total vendido de cada produto, somando a coluna "OrderQuantity" da tabela "sales" para cada produto.
@@ -220,7 +220,7 @@ LIMIT 10;
 /*
 
 A consulta utiliza a função CONCAT() para combinar o primeiro nome e o sobrenome do cliente em uma única coluna chamada "Cliente". 
-Em seguida, utiliza a função COUNT() para contar o número de pedidos (baseado na coluna "orderNumber") para cada cliente.
+Em seguida, utiliza a função COUNT() para contar o número de pedidos (baseado na coluna "OrderNumber") para cada cliente.
 
 Os resultados são agrupados pelo ID do cliente (CustomerKey) utilizando o comando GROUP BY. 
 Em seguida, são ordenados em ordem decrescente com base no número total de pedidos utilizando ORDER BY. 
@@ -229,7 +229,7 @@ O comando LIMIT 1 é usado para retornar apenas o primeiro registro, ou seja, o 
 */
 
 
-SELECT concat(c.FirstName, ' ', c.LastName) AS Cliente, count(s.orderNumber) AS Total_Pedidos
+SELECT concat(c.FirstName, ' ', c.LastName) AS Cliente, count(s.OrderNumber) AS Total_Pedidos
 FROM customer as c
 JOIN sales as s ON c.CustomerKey  = s.CustomerKey 
 GROUP BY c.CustomerKey 
@@ -268,12 +268,12 @@ LIMIT 1;
 
 /*
 
-O código utiliza subconsultas para calcular a média de vendas por região e país. 
-A primeira subconsulta calcula a média de vendas (preço do produto multiplicado pela quantidade vendida) agrupada por região e país. 
+O código utiliza subconsultas para calcular a média de vendas por região. 
+A primeira subconsulta calcula a média de vendas (preço do produto multiplicado pela quantidade vendida) agrupada por região. 
 Em seguida, utiliza a função ROW_NUMBER() para atribuir um número de linha a cada registro dentro de cada região, 
 ordenando-os pela média de vendas em ordem decrescente.
 
-A segunda subconsulta calcula a média geral de vendas mensais. Em seguida, compara a média de vendas por região e país com a 
+A segunda subconsulta calcula a média geral de vendas mensais. Em seguida, compara a média de vendas por região com a 
 média geral e seleciona apenas as regiões com média de vendas acima da média geral.
 
 A consulta principal filtra os resultados para retornar apenas o registro com o maior valor de média de
@@ -282,16 +282,16 @@ vendas por região (row_num = 1) e ordena os resultados em ordem decrescente com
 */ 
 
 
-SELECT Region, Country, ROUND(media_vendas, 2) AS media_vendas
+SELECT Region, ROUND(media_vendas, 2) AS media_vendas
 FROM (
-    SELECT Region, Country, media_vendas,
+    SELECT Region, media_vendas,
            ROW_NUMBER() OVER (PARTITION BY Region ORDER BY media_vendas DESC) AS row_num
     FROM (
-        SELECT Region, Country, AVG(p.ProductPrice * s.OrderQuantity) AS media_vendas
+        SELECT Region, AVG(p.ProductPrice * s.OrderQuantity) AS media_vendas
         FROM territories AS t
         LEFT JOIN sales AS s ON t.SalesTerritoryKey = s.TerritoryKey
         LEFT JOIN products AS p ON s.ProductKey = p.ProductKey
-        GROUP BY Region, Country
+        GROUP BY Region
     ) AS vendas_por_regiao
     WHERE media_vendas > (
         SELECT AVG(media_vendas)

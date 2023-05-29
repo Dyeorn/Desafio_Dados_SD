@@ -41,16 +41,16 @@ queries = [
     LIMIT 1;
     """,
     """
-    SELECT Region, Country, ROUND(media_vendas, 2) AS media_vendas
+    SELECT Region, ROUND(media_vendas, 2) AS media_vendas
     FROM (
-    SELECT Region, Country, media_vendas,
+    SELECT Region, media_vendas,
            ROW_NUMBER() OVER (PARTITION BY Region ORDER BY media_vendas DESC) AS row_num
     FROM (
-            SELECT Region, Country, AVG(p.ProductPrice * s.OrderQuantity) AS media_vendas
+            SELECT Region, AVG(p.ProductPrice * s.OrderQuantity) AS media_vendas
             FROM territories AS t
             LEFT JOIN sales AS s ON t.SalesTerritoryKey = s.TerritoryKey
             LEFT JOIN products AS p ON s.ProductKey = p.ProductKey
-            GROUP BY Region, Country
+            GROUP BY Region
     ) AS vendas_por_regiao
     WHERE media_vendas > (
         SELECT AVG(media_vendas)
@@ -99,7 +99,7 @@ for i, query in enumerate(queries):
         elif i ==2:
             writer.writerow(['Mes', 'Valor_Total'])
         elif i==3:
-            writer.writerow(['Regiao', 'Pais', 'Media_Vendas'])
+            writer.writerow(['Regiao', 'Media_Vendas'])
         else:
             writer.writerow(['Sub_Categoria', 'Nome_Produto', 'Total_Vendido'])
         
