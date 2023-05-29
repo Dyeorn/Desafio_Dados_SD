@@ -88,7 +88,7 @@ for i, query in enumerate(queries):
     arquivo_csv = f'query_{i}.csv'
 
     # Grava os resultados em um arquivo CSV.
-    with open(csv_file, 'w', newline='') as file:
+    with open(arquivo_csv, 'w', newline='') as file:
         writer = csv.writer(file)
 
         # Escreve o Cabeçalho.
